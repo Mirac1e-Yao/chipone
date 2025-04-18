@@ -9,9 +9,11 @@ def extract_sheets_to_txt(input_excel, output_txt, start_sheet, end_sheet):
     end_idx = end_sheet - 1
     
     with open(output_txt, 'w', encoding='utf-8') as f:
+        line = "R9C A5 A5" + "\n" + "RFD 5A 5A " + "\n\n"
+        f.write(line)
         # 遍历指定范围内的sheet
         for sheet in wb.worksheets[start_idx:end_idx+1]:
-            line = "\nR9F " + f"{(wb.worksheets.index(sheet) - 3):02X}" + "\n"
+            line = "R9F " + f"{(wb.worksheets.index(sheet) - 3):02X}" + "\n"
             f.write(line)
             # 存储B列合并区域信息 {起始行: (结束行, 合并值)}
             merged_dict = {}
@@ -65,7 +67,7 @@ def extract_sheets_to_txt(input_excel, output_txt, start_sheet, end_sheet):
 # 使用示例
 input_excel = "C:\\Users\\67064\\Desktop\\ICNA3508A_Instruction_Table_OTP.xlsx"
 output_txt = "C:\\Users\\67064\\Desktop\\output_3508A_default.txt"
-start_sheet = 7   # 起始sheet编号（基于1的索引）
+start_sheet = 5   # 起始sheet编号（基于1的索引）
 end_sheet = 20     # 结束sheet编号
 
 extract_sheets_to_txt(input_excel, output_txt, start_sheet, end_sheet)
