@@ -15,8 +15,8 @@ def process_hex_file(input_file, output_file):
 
         # 将重新排列的十六进制数按每 16 个为一行写入输出文件
         with open(output_file, "w") as f:
-            for i in range(0, len(grouped_values), 16):
-                line = " ".join(grouped_values[i:i + 16])  # 每行 16 个，用空格隔开
+            for i in range(0, len(grouped_values), 12):
+                line = " ".join(grouped_values[i:i + 12])  # 每行 16 个，用空格隔开
                 f.write(line + "\n")
 
         print(f"处理完成！结果已保存到: {output_file}")

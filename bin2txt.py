@@ -12,8 +12,8 @@ def bin_to_txt(input_bin_file, output_txt_file):
 
         # 按每 16 个十六进制数换行
         with open(output_txt_file, "w") as txt_file:
-            for i in range(0, len(formatted_hex), 16):
-                line = " ".join(formatted_hex[i:i+16])  # 每行 16 个，用空格隔开
+            for i in range(0, len(formatted_hex), 12):
+                line = " ".join(formatted_hex[i:i+12])  # 每行 16 个，用空格隔开
                 txt_file.write(line + "\n")
 
         print(f"转换完成！结果已保存到: {output_txt_file}")
